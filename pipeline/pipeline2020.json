@@ -1,0 +1,292 @@
+{
+	"name": "pipeline2020",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data2020",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "FiscalYear",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "FiscalYear",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "PayrollNumber",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PayrollNumber",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "AgencyID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "AgencyID",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "AgencyName",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "AgencyName",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "EmployeeID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "EmployeeID",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "LastName",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "LastName",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "FirstName",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "FirstName",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "AgencyStartDate",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "AgencyStartDate",
+									"type": "Date",
+									"physicalType": "date"
+								}
+							},
+							{
+								"source": {
+									"name": "WorkLocationBorough",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "WorkLocationBorough",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "TitleCode",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TitleCode",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "TitleDescription",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TitleDescription",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "LeaveStatusasofJune30",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "LeaveStatusasofJune30",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "BaseSalary",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "BaseSalary",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "PayBasis",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PayBasis",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "RegularHours",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "RegularHours",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "RegularGrossPaid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "RegularGrossPaid",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "OTHours",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "OTHours",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "TotalOTPaid",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TotalOTPaid",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							},
+							{
+								"source": {
+									"name": "TotalOtherPay",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TotalOtherPay",
+									"type": "Double",
+									"physicalType": "float"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "adls_2020",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "db_2020",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-01-28T09:38:02Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,9 @@
+{
+	"name": "pipelinedf4",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "807a5366-39b4-418b-b570-a0170947e726",
+		"tenantId": "f958e84a-92b8-439f-a62d-4f45996b6d07"
+	}
+}
